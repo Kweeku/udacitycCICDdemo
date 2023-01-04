@@ -6,18 +6,18 @@ orbs:
   welcome: circleci/welcome-orb@0.4.1
 
 
-  jobs:
-    print_hello: # name of your job
-      docker: # executor type
-        - image: cimg/base:stable # primary container will run the latest, production-ready base image
-      steps:
-        - run: echo "hello"
+jobs:
+  print_hello: # name of your job
+    docker: # executor type
+      - image: cimg/base:stable # primary container will run the latest, production-ready base image
+    steps:
+      - run: echo "hello"
 
-    print_world: # name of your job
-      docker: # executor type
-        - image: cimg/base:stable # primary container will run the latest, production-ready base image
-      steps:
-        - run: echo "world"
+  print_world: # name of your job
+    docker: # executor type
+      - image: cimg/base:stable # primary container will run the latest, production-ready base image
+    steps:
+      - run: echo "world"
 
 # Orchestrate or schedule a set of jobs
 workflows:
