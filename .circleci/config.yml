@@ -5,12 +5,16 @@ orbs:
 
 jobs:
   print_hello:
-    executor: circleci/node:13.8.0
+    executor:
+      name: docker
+      image: circleci/node:13.8.0
     steps:
       - run: echo "hello"
 
   print_world:
-    executor: circleci/node:13.8.0
+    executor:
+      name: docker
+      image: circleci/node:13.8.0
     steps:
       - run: echo "world"
 
