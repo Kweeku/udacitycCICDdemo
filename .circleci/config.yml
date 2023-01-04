@@ -7,14 +7,14 @@ jobs:
   print_hello:
     executor:
       name: docker
-      image: circleci/node:13.8.0
+      image: node:13.8.0-bionic-20221230
     steps:
       - run: echo "hello"
 
   print_world:
     executor:
       name: docker
-      image: circleci/node:13.8.0
+      image: node:13.8.0-bionic-20221230
     steps:
       - run: echo "world"
 
