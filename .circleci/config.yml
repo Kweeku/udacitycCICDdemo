@@ -18,10 +18,12 @@ jobs:
   print_name: # name of your job
     docker: # executor type
       - image: cimg/base:stable # primary container will run the latest, production-ready base image
-    environment:
-      MY_ENV_VAR: Benedict Adu
     steps:
-      - run: echo "My name is $MY_ENV_VAR"
+      - checkout
+      - run:
+          name: "echo an env var that is part of our project"
+          command: |
+            echo $MY_ENV_VAR
 
 # Orchestrate or schedule a set of jobs
 workflows:
