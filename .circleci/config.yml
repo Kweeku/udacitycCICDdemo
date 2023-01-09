@@ -3,7 +3,8 @@ version: 2.1
 commands:
   print_pipeline_id:
     steps:
-      - run: echo "Workflow ID: $CIRCLE_WORKFLOW_ID"
+      - run:
+          command: echo "Workflow ID: $CIRCLE_WORKFLOW_ID"
 
 jobs:
   print_pipeline_id_job:
