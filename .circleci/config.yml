@@ -16,7 +16,7 @@ jobs:
     steps:
       - run:
           name: Print pipeline ID
-          command: print_pipeline_id
+          command: $print_pipeline_id
           
 workflows:
   print_pipeline_id_workflow:
