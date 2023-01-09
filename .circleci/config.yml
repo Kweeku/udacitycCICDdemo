@@ -9,17 +9,19 @@ jobs:
     steps:
       - run: echo "text to output here" > output.txt
       - persist_to_workspace:
-        root: .
-        paths:
-          - output.txt
+          root: .
+          paths:
+            - output.txt
 
   print_output_file:
+    docker: # executor type
+      - image: cimg/base:stable # primary container will run the latest, production-ready base image
     steps:
-    - attach_workspace:
+     - attach_workspace:
         at: .
-    - run:
-      name: Print contents of output.txt
-      command: cat output.txt
+      - run:
+        name: Print contents of output.txt
+        command: cat output.txt
 
 
 # Orchestrate or schedule a set of jobs
