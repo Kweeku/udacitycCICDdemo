@@ -19,7 +19,7 @@ jobs:
     steps:
      - attach_workspace:
         at: .
-      - run:
+     - run:
         name: Print contents of output.txt
         command: cat output.txt
 
