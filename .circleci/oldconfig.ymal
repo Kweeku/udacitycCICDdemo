@@ -1,0 +1,21 @@
+  # print_hello: # name of your job
+  #   docker: # executor type
+  #     - image: cimg/base:stable # primary container will run the latest, production-ready base image
+  #   steps:
+  #     - run: echo "hello"
+
+  # print_world: # name of your job
+  #   docker: # executor type
+  #     - image: cimg/base:stable # primary container will run the latest, production-ready base image
+  #   steps:
+  #     - run: echo "world"
+
+  # print_name: # name of your job
+  #   docker: # executor type
+  #     - image: cimg/base:stable # primary container will run the latest, production-ready base image
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: "echo an env var that is part of our project"
+  #         command: |
+  #           echo $MY_ENV_VAR

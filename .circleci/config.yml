@@ -3,38 +3,32 @@ version: 2.1
 # Use a package of configuration called an orb.
 
 jobs:
-  print_hello: # name of your job
+  save_hello_world_output: # name of your job
     docker: # executor type
       - image: cimg/base:stable # primary container will run the latest, production-ready base image
     steps:
-      - run: echo "hello"
+      - run: echo "text to output here" > output.txt
+      - persist_to_workspace:
+        root: .
+        paths:
+          - output.txt
 
-  print_world: # name of your job
-    docker: # executor type
-      - image: cimg/base:stable # primary container will run the latest, production-ready base image
+  print_output_file:
     steps:
-      - run: echo "world"
+    - attach_workspace:
+        at: .
+    - run:
+      name: Print contents of output.txt
+      command: cat output.txt
 
-  print_name: # name of your job
-    docker: # executor type
-      - image: cimg/base:stable # primary container will run the latest, production-ready base image
-    steps:
-      - checkout
-      - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $MY_ENV_VAR
 
 # Orchestrate or schedule a set of jobs
 workflows:
-  # Name the workflow "welcome"
-  welcome:
+  # Name the workflow "sharing_files"
+  sharing_files:
     jobs:
-      - print_hello
-      - print_world:
+      - save_hello_world_output
+      -  print_output_filed:
           requires:
-            - print_hello
-      - print_name:
-          requires:
-            - print_world
+            - save_hello_world_output
 
