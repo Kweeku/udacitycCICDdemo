@@ -20,7 +20,7 @@ jobs:
       - image: cimg/base:stable
     steps:
        - print_pipeline_id
-
+ 
 workflows:
   print_pipeline_id_workflow:
     jobs:
