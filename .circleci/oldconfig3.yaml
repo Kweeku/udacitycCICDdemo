@@ -6,13 +6,7 @@ commands:
       - run:
           name: Print pipeline ID
           command: echo ${CIRCLE_WORKFLOW_ID}
-      - run:
-          name: Fail on purpose
-          command: exit 1
-      - run:
-          name: Only run on fail
-          command: echo "This step only runs if the previous step has failed"
-          when: on_fail
+
 
 jobs:
   print_pipeline_id_job:
@@ -20,7 +14,7 @@ jobs:
       - image: cimg/base:stable
     steps:
        - print_pipeline_id
-
+          
 workflows:
   print_pipeline_id_workflow:
     jobs:
