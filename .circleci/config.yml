@@ -8,19 +8,19 @@ jobs:
   create_infrastructure: 
     docker:
       - image: python:3.7-alpine3.11
-      steps:
-        - checkout
-        - add_ssh_keys:
-            fingerprints:
-              - "AnsibleDemo"
-        - run:
-            name: Install ansible
-            command: |
-              apk add --update ansible
-        - run:
-            name: Configure EC2 instance
-            command: |
-              ansible-playbook -i inventory main-remote.yml
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "AnsibleDemo"
+      - run:
+          name: Install ansible
+          command: |
+            apk add --update ansible
+      - run:
+          name: Configure EC2 instance
+          command: |
+            ansible-playbook -i inventory main-remote.yml
 
 workflows:
   myWorkflow:
