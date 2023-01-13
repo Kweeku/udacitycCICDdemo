@@ -11,6 +11,9 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "AnsibleDemo"
       - run:
           name: Create Cloudformation Stack
           command: |
