@@ -10,6 +10,11 @@ jobs:
       - image: python:3.7-alpine3.11
     steps:
       - checkout
+      - run:
+      name: Confirm host authenticity
+      command: |
+        ssh-keyscan -H 3.86.255.137 >> ~/.ssh/known_hosts
+
       - add_ssh_keys:
           fingerprints:
             - "AnsibleDemo"
