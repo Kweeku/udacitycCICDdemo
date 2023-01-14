@@ -25,7 +25,6 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "AnsibleDemo"
-      - run: apk add --update curl
       - run:
           name: Create Cloudformation Stack
           command: |
