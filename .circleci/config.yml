@@ -10,19 +10,13 @@ jobs:
       - image: python:3.7-alpine3.11
     steps:
       - checkout
-      - run:
-          name: Update Python version
-          command: |
-            apk update
-            apk add python3
-      - run:
-          name: Install ansible and paramiko library
-          command: |
-            apk add --update ansible
-            pip install --upgrade paramiko
       - add_ssh_keys:
           fingerprints:
             - "AnsibleDemo"
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --update ansible
       - run:
           name: Configure EC2 instance
           command: |
